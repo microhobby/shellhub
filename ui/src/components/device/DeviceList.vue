@@ -197,7 +197,7 @@ export default {
       let encodedFilter = null;
 
       if(this.search) {
-        filter = [{type: 'property', params: {name: 'name', operator: 'like', value: this.search}}];
+        filter = [{'type': 'property', 'property_params': {'name': 'name', 'operator': 'like', 'value': this.search}}];
         encodedFilter = btoa(JSON.stringify(filter));
       } 
       const data = {perPage: this.pagination.itemsPerPage, page: this.pagination.page, filter: encodedFilter};
