@@ -6,6 +6,7 @@ require (
 	github.com/cnf/structhash v0.0.0-20180104161610-62a607eb0224
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/go-playground/universal-translator v0.17.0 // indirect
+	github.com/hashicorp/go-retryablehttp v0.6.6 // indirect
 	github.com/kelseyhightower/envconfig v1.4.0
 	github.com/klauspost/compress v1.10.7 // indirect
 	github.com/labstack/echo v3.3.10+incompatible

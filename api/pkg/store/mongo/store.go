@@ -560,6 +560,27 @@ func (s *Store) GetDeviceByUID(ctx context.Context, uid models.UID, tenant strin
 	return device, nil
 }
 
+func (s *Store) CreateFirewallRule(ctx context.Context, rule models.FirewallRule) error {
+	return nil
+}
+
+func (s *Store) ListFirewallRules(ctx context.Context, perPage, page int) ([]models.FirewallRule, int, error) {
+	rules := []models.FirewallRule{
+		models.FirewallRule{Action: "allow", Active: true, SourceIP: "127.0.0.1", User: "root", Hostname: "00-00-00-00-00"},
+		models.FirewallRule{Action: "deny", Active: false, SourceIP: "127.0.0.1", User: "root", Hostname: "00-00-00-00-00"},
+	}
+
+	return rules, 2, nil
+}
+
+func (s *Store) GetFirewallRule(ctx context.Context, id string) (*models.FirewallRule, error) {
+	return nil, nil
+}
+
+func (s *Store) DeleteFirewallRule(ctx context.Context, id string) error {
+	return nil
+}
+
 func buildFilterQuery(filters []models.Filter) ([]bson.M, error) {
 	var queryMatch []bson.M
 	var queryFilter []bson.M

@@ -16,6 +16,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"github.com/shellhub-io/shellhub/api/pkg/services/authsvc"
 	"github.com/shellhub-io/shellhub/api/pkg/services/deviceadm"
+	"github.com/shellhub-io/shellhub/api/pkg/services/firewall"
 	"github.com/shellhub-io/shellhub/api/pkg/services/sessionmngr"
 	"github.com/shellhub-io/shellhub/api/pkg/store/mongo"
 	api "github.com/shellhub-io/shellhub/pkg/api/client"
@@ -394,6 +395,18 @@ func main() {
 		svc := sessionmngr.NewService(store)
 
 		return svc.DeactivateSession(ctx, models.UID(c.Param("uid")))
+	})
+
+	publicAPI.GET("/firewall/rules", func(c echo.Context) error {
+		ctx := c.Get("ctx").(context.Context)
+
+		store := mongo.NewStore(ctx.Value("db").(*mgo.Database))
+		svc := firewall.NewService(store)
+		fmt.Println(svc)
+
+		rules, _, _ := svc.ListRules(ctx, 25, 0)
+
+		return c.JSON(http.StatusOK, rules)
 	})
 
 	e.Logger.Fatal(e.Start(":8080"))

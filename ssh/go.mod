@@ -8,6 +8,7 @@ require (
 	github.com/gliderlabs/ssh v0.3.0
 	github.com/gorilla/mux v1.7.4
 	github.com/gorilla/websocket v1.4.2 // indirect
+	github.com/hashicorp/go-retryablehttp v0.6.6 // indirect
 	github.com/parnurzeal/gorequest v0.2.16
 	github.com/pires/go-proxyproto v0.1.3
 	github.com/pkg/errors v0.9.1 // indirect
