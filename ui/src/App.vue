@@ -158,6 +158,11 @@ export default {
           icon: 'history',
           title: 'Sessions',
           path: '/sessions'
+        },
+        {
+          icon: 'history',
+          title: 'Firewalls',
+          path: '/firewalls'
         }
       ]
     };

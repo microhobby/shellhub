@@ -6,9 +6,10 @@ import modals from '@/modules/modals';
 import stats from '@/modules/stats';
 import sessions from '@/modules/sessions';
 import auth from '@/modules/auth';
+import firewalls from '@/modules/firewalls';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  modules: { devices, modals, stats, sessions, auth }
+  modules: { devices, modals, stats, sessions, auth, firewalls }
 });
