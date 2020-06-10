@@ -1,5 +1,5 @@
 import Vuex from 'vuex';
-import { shallowMount, createLocalVue } from '@vue/test-utils';
+import { createLocalVue, mount } from '@vue/test-utils';
 import DeviceDelete from '@/components/device/DeviceDelete.vue';
 
 describe('DeviceDelete', () => {
@@ -20,7 +20,7 @@ describe('DeviceDelete', () => {
 
   beforeEach(() => {
 
-    wrapper = shallowMount(DeviceDelete, {
+    wrapper = mount(DeviceDelete, {
       store,
       localVue,
       stubs: ['fragment'],
@@ -33,5 +33,10 @@ describe('DeviceDelete', () => {
   });
   it('Renders the component', () => {
     expect(wrapper.html()).toMatchSnapshot();
+  });
+  it('After clicking the icon, dialog is true', () => {
+    const btn = wrapper.find('.v-icon');
+    btn.trigger('click');
+    expect(wrapper.vm.dialog).toBeTruthy();
   });
 });
